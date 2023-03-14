@@ -1,5 +1,4 @@
 import express from 'express';
-import countryRoutes from './routes/country';
 
 import { config } from '../config';
 import './lib/db';
