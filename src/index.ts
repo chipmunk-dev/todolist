@@ -14,8 +14,6 @@ app.get('/', async (req, res) => {
 	res.json({ message: 'Please visit /countries to view all the countries' });
 });
 
-app.use('/countries', countryRoutes);
-
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
 });
