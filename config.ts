@@ -15,4 +15,8 @@ export const config = {
 	db: {
 		host: required('MONGO_URL'),
 	},
+	cors: {
+		origin: required('CORS_ORIGIN'),
+	},
+	morgan: required('MORGAN_TYPE'),
 };
