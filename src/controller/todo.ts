@@ -25,12 +25,13 @@ export const create = async (req: Request, res: Response) => {
 // Update contents
 export const update = async (req: Request, res: Response) => {
 	const { id } = req.params;
-	const { contents } = req.body;
+	const { contents, complete } = req.body;
 
 	try {
-		const updateTodo = await todoRepository.update({ id, contents });
+		const updateTodo = await todoRepository.update({ id, contents, complete });
 		return res.status(200).json({ todoId: updateTodo.id });
 	} catch (error) {
+		console.error(error);
 		if (mongooseErrorTypeGuard(error)) {
 			return res.status(400).json({ error: error?.message });
 		}

@@ -37,6 +37,5 @@ export const update = async ({ id, contents, complete }: { id: string; contents?
 };
 
 export const deleteById = async (id: string) => {
-	const _id = id;
 	return Todo.remove({ _id: id });
 };
