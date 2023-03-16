@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { mapVirtualId } from '../../mapped/db';
+import { mapVirtualId } from '../mapped/db';
 import { TodoInput } from '../interface/todo.inteface';
 
 const { Schema, model } = mongoose;
@@ -20,7 +20,8 @@ export const findAll = async () => {
 };
 
 export const findById = async (id: string) => {
-	return Todo.findById(id);
+	const _id = id;
+	return Todo.findById(_id);
 };
 
 export const create = async (todo: TodoInput) => {
@@ -28,10 +29,11 @@ export const create = async (todo: TodoInput) => {
 };
 
 export const update = async ({ id, contents, complete }: { id: string; contents?: string; complete?: boolean }) => {
+	const _id = id;
 	const updateQuery: { contents?: string; complete?: boolean } = {};
 	contents && (updateQuery.contents = contents);
 	complete && (updateQuery.complete = complete);
-	return Todo.findOneAndUpdate({ _id: id }, { ...updateQuery });
+	return Todo.findOneAndUpdate({ _id }, { ...updateQuery });
 };
 
 export const deleteById = async (id: string) => {
