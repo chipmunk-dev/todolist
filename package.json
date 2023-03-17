@@ -7,11 +7,13 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "build": "tsc",
-    "start": "node dist/src/index.js"
+    "build": "tsc && yarn copy-swagger",
+    "start": "node dist/src/index.js",
+    "copy-swagger": "copyfiles -f swagger.yaml dist"
   },
   "dependencies": {
     "cookie-parser": "^1.4.6",
+    "copyfiles": "^2.4.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "4.17.1",
