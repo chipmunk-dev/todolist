@@ -20,7 +20,7 @@ const corsOptions: cors.CorsOptions = {
 	optionsSuccessStatus: 200,
 	credentials: true,
 };
-const swaggerDocument = YAML.load(path.join(__dirname, '/document/swagger.yaml'));
+const swaggerDocument = YAML.load(path.join(__dirname, '..', 'swagger.yaml'));
 
 app.use(json());
 app.use(cookieParser());
