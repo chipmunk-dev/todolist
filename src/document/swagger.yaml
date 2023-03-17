@@ -1,0 +1,92 @@
+openapi: 3.0.0
+info:
+  title: To-do-list
+  description: It's a Todolist RestfulAPI server.
+  version: 1.1.0
+servers:
+  - url: http://localhost:3333/
+  - url: https://expressjs-mongoose-production-dbc3.up.railway.app/
+paths:
+  /todo:
+    get:
+      summary: Get all Todos
+      operationId: getAllTodos
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        contents:
+                          type: string
+                        complete:
+                          type: boolean
+                        createdAt:
+                          type: string
+                          format: date
+                        updatedAt:
+                          type: string
+                          format: date
+    post:
+      summary: Create new todo
+      operationId: createTodo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contents:
+                  type: string
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+  /todo/{id}:
+    put:
+      summary: update contents or complete in todo By Id
+      operationId: updateTodo
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contents:
+                  type: string
+                complete:
+                  type: boolean
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+    delete:
+      summary: Delete Todo By Id
+      operationId: deleteTodo
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      responses:
+        '204':
+          description: No content
