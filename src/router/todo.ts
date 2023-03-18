@@ -1,13 +1,12 @@
 import express from 'express';
 import * as todoController from '../controller/todo';
-import { todoValidation, validationErrorCheck } from '../middleware/validation';
+import { createValidation, updateValidation } from '../middleware/validation';
 
 const route = express.Router();
-const { checkContents, checkComplete } = todoValidation;
 
 route.get('/', todoController.getList);
-route.post('/', [checkContents, validationErrorCheck], todoController.create);
-route.put('/:id', [checkContents, checkComplete, validationErrorCheck], todoController.update);
+route.post('/', createValidation, todoController.create);
+route.put('/:id', updateValidation, todoController.update);
 route.delete('/:id', todoController.remove);
 
 export default route;
