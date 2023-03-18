@@ -12,6 +12,7 @@
     "copy-swagger": "copyfiles -f swagger.yaml dist"
   },
   "dependencies": {
+    "ajv": "^8.12.0",
     "cookie-parser": "^1.4.6",
     "copyfiles": "^2.4.1",
     "cors": "^2.8.5",
