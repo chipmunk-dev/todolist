@@ -1,6 +1,6 @@
 ---
 title: ExpressJS Mongoose
-description: An ExpressJS server that connects to a MongoDB database
+description: Todo RESTful API Server
 tags:
   - express
   - mongodb
