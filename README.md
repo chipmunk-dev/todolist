@@ -1,5 +1,5 @@
 ---
-title: ExpressJS Mongoose
+title: Todo List API Server
 description: Todo RESTful API Server
 tags:
   - express
@@ -8,38 +8,33 @@ tags:
   - typescript
 ---
 
-# ExpressJS Mongoose Example
-
-This example starts an [ExpressJS](https://expressjs.com/) server that connects to a Railway MongoDB database using [MongooseJS](https://mongoosejs.com/)
+# Todo List API Server
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/RM1WxR)
 
+[Api Document](https://expressjs-mongoose-production-dbc3.up.railway.app/api-docs/#/)
+
+[Server Deploy](https://expressjs-mongoose-production-dbc3.up.railway.app/)
+
 ## ✨ Features
 
-- Express
-- TypeScript
-- MongoDB with Mongoose
+- Serve Api for Todo Create, Update, Read, Delete
+- Serve Api Document with Swagger
+- Store data using MongoDB and Mongoose
+- Validate Schema with Ajv Library
 
 ## 💁‍♀️ How to use
 
 - Install dependencies `yarn`
-- Connect to your Railway project `railway link`
-- Start the development server `railway run yarn dev`
+- Start the development server `yarn dev`
 
 ## 📝 Notes
 
-The starter contains a single `Country` model that you can read from and write to.
+Provides the ability to handle Todo data.
 
 There are two main routes on the server:
 
-- A `GET` route - `/countries` which returns all the countries
-- A `POST` route - `/countries` which can be used to add a new country
-
-Example post request to add a new country:
-
-```
-curl -H "Content-Type: application/json" \
-  --request POST \
-  -d '{"name":"India","iso2code":"IN"}' \
-  http://localhost:3333/countries
-```
+- A `GET` route - `/todo` which returns all the Todos
+- A `POST` route - `/todo` which can be used to add a Todo
+- A `PUT` route - `/todo/:id` which can be updated for Todo
+- A `DELETE` route - `/todo/:id` which can be deleted for Todo
